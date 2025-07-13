@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
@@ -9,6 +10,7 @@ class Aluno(models.Model):
         return self.nome
 
 class Professor(models.Model):
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE, related_name='professor')
     nome = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequência</title>
+</head>
+<body>
+    <h2>Frequência - {{ aula.curso.nome }} ({{ aula.data }})</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Presença</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td>{{ aluno.nome }}</td>
+                        <td>
+                            <input type="checkbox" name="presenca" value="{{ aluno.id }}"
+                                   {% if aluno.id in presenca_alunos %}checked{% endif %}>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2">Nenhum aluno encontrado.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </form>
+</body>
+</html>
