@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard-Professor</title>
+</head>
+<body>
+    <h2>Seus Cursos</h2>
+    <ul>
+        {% for curso in cursos %}
+            <li>
+                {{ curso.nome }} - <a href="{% url 'core:aulas_do_curso' curso.id %}">Ver Aulas</a>
+            </li>
+        {% endfor %}
+        {% if not cursos %}
+            <li>Nenhum curso encontrado.</li>
+        {% endif %}
+    </ul>
+
+    <form action="{% url 'core:professor_logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+    </form>
+</body>
+</html>

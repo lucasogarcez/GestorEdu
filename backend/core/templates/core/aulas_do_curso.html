@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas do curso</title>
+</head>
+<body>
+    <h2>Aulas de {{ curso.nome }}</h2>
+    <ul>
+        {% for aula in aulas %}
+            <li>
+                <strong>{{ aula.data }}</strong> - <a href="{% url 'core:registrar_frequencia' aula.id %}">Registrar Frequência</a>
+            </li>
+        {% empty %}
+            <li>Nenhuma aula encontrada para este curso.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'core:dashboard_professor' %}">Voltar</a>
+</body>
+</html>
