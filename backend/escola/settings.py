@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'escola.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< Updated upstream
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('POSTGRES_DB'),
@@ -82,6 +83,11 @@ DATABASES = {
         'HOST': config('POSTGRES_HOST', default='localhost'),
         'PORT': config('POSTGRES_PORT', default='5432', cast=int),
     }
+=======
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+>>>>>>> Stashed changes
 }
 
 
