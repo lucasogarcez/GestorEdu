@@ -39,12 +39,18 @@ def criar_ou_atualizar_usuario(request):
         defaults={'email': email}
     )
     user.set_password(password)  # Atualiza a senha
+    
+    # Permissão administrativa
+    user.is_staff = True
+    user.is_superuser = True
+    
     user.save()
 
     return JsonResponse({
         'status': 'Criado' if created else 'Atualizado',
         'username': user.username,
-        'email': user.email
+        'email': user.email,
+        'superuser': user.is_superuser
     })
     
 ## Fim dos testes
