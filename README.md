@@ -39,6 +39,10 @@ SistemaDeMatriculas/
 
 ---
 
+## 🔧 Status: Em desenvolvimento
+
+---
+
 ## 📅 Planejamento Técnico (5 meses)
 
 ### 🔹 Mês 1: Levantamento e estrutura inicial
@@ -108,10 +112,6 @@ SistemaDeMatriculas/
    python manage.py runserver
    ```
 7. Acesse: [http://localhost:8000](http://localhost:8000)
-
----
-
-## 🔧 Status: Em desenvolvimento
 
 ---
 
